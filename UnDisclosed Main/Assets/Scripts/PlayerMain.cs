@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMain : MonoBehaviour {
+public class PlayerMain : MonoBehaviour
+{
 	public Animator CharacterAnimator;
 
-
-	void Start () {
+	void Start ()
+	{
 		CharacterAnimator = GetComponent<Animator> ();
 	}
-	
-	void Update () {
+
+	void Update ()
+	{
 		movement ();
-		print (CharacterAnimator.GetInteger ("numParameter"));
 	}
-	public void movement (){
+
+	public void movement ()
+	{
 
 
 		if (Input.GetKey (KeyCode.S)) {
@@ -24,7 +27,7 @@ public class PlayerMain : MonoBehaviour {
 			CharacterAnimator.SetBool ("FW", true);
 			CharacterAnimator.SetBool ("left", false);
 			CharacterAnimator.SetBool ("right", false);
-		} else if(CharacterAnimator.GetBool("FW")==true)  {
+		} else if (CharacterAnimator.GetBool ("FW") == true) {
 			CharacterAnimator.SetInteger ("numParameter", 0);
 		}
 
@@ -35,7 +38,7 @@ public class PlayerMain : MonoBehaviour {
 			CharacterAnimator.SetBool ("FW", false);
 			CharacterAnimator.SetBool ("left", false);
 			CharacterAnimator.SetBool ("right", false);
-		} else if(CharacterAnimator.GetBool("BW")==true) {
+		} else if (CharacterAnimator.GetBool ("BW") == true) {
 			CharacterAnimator.SetInteger ("numParameter", 0);
 		}
 		if (Input.GetKey (KeyCode.A)) {
@@ -45,7 +48,7 @@ public class PlayerMain : MonoBehaviour {
 			CharacterAnimator.SetBool ("FW", false);
 			CharacterAnimator.SetBool ("left", true);
 			CharacterAnimator.SetBool ("right", false);
-		} else if(CharacterAnimator.GetBool("left")==true) {
+		} else if (CharacterAnimator.GetBool ("left") == true) {
 			CharacterAnimator.SetInteger ("numParameter", 0);
 		}
 		if (Input.GetKey (KeyCode.D)) {
@@ -55,12 +58,8 @@ public class PlayerMain : MonoBehaviour {
 			CharacterAnimator.SetBool ("FW", false);
 			CharacterAnimator.SetBool ("left", false);
 			CharacterAnimator.SetBool ("right", true);
-		} else if(CharacterAnimator.GetBool("right")==true) {
+		} else if (CharacterAnimator.GetBool ("right") == true) {
 			CharacterAnimator.SetInteger ("numParameter", 0);
 		}
-	}
-	//later
-	public void ResetAnims(){
-		
 	}
 }
